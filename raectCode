@@ -1,0 +1,20 @@
++++++++++++#Functional Components(How to make componemts+++++++++++++++++++
+//Making Functional components
+function MyInfo(){
+  return (
+    <React.Fragment>
+
+    <h1>This is MyInfo()</h1>
+    <p>Hello sir, i am a Functional component and can be reuse many times into the react code</p>
+    </React.Fragment>
+  )
+}
+
+ReactDOM.render(
+  <MyInfo />,
+        document.getElementById('root'))
+
+
+
+
+
