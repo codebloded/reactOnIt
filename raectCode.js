@@ -1,4 +1,4 @@
-+++++++++++#Functional Components(How to make componemts+++++++++++++++++++
+//+++++++++++#Functional Components(How to make componemts+++++++++++++++++++
 //Making Functional components
 function MyInfo(){
   return (
@@ -16,9 +16,9 @@ ReactDOM.render(
 
 
 
-===========================================================
-        React State : hopw state work
-===========================================================
+//===========================================================
+ //       React State : hopw state work
+//===========================================================
 
 import React from "react";
 const { Component } = require("react");
@@ -52,13 +52,13 @@ class App extends Component{
 
 export default App;
 
-=============================================================================================
+//=============================================================================================
 
 
 
-=====================================
+//=====================================
 Events handling in react 
-=====================================
+//=====================================
 
 function handleFunc(){
     console.log("I clicked on click button;)")
@@ -82,12 +82,12 @@ class App extends React.Component{
 }
 
 
-===============================================================================================
+//===============================================================================================
 
 
-======================================================
-States aand changing states in class based components 
-======================================================
+//======================================================
+//States aand changing states in class based components 
+//======================================================
 
 
 class App extends React.Component{
@@ -122,8 +122,41 @@ class App extends React.Component{
         
     }
 }
-==================================================================================================
+//==================================================================================================
 
+//===================================
+//Another exmple of chnaging state
+//====================================
+
+
+class App extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            flag:0
+        };
+     this.handleFunc = this.handleFunc.bind(this);
+    }
+
+    handleFunc()
+    {
+        console.log("clicked and flaged value is changed ")
+        this.setState((prevState=>{
+            return{
+                flag:prevState.flag+1
+            }
+        }));
+    }
+    render(){
+        return(
+            <div>
+                <h1>{this.state.flag}</h1>
+                <button onClick={this.handleFunc}>Change!</button>
+            </div>
+        )
+    }
+} 
+//==============================================================================================
 
 
 
