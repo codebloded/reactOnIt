@@ -56,5 +56,76 @@ export default App;
 
 
 
+=====================================
+Events handling in react 
+=====================================
+
+function handleFunc(){
+    console.log("I clicked on click button;)")
+   
+
+}
+
+class App extends React.Component{
+    constructor(){
+        super()
+    }
+    render(){
+        return (
+        <div onMouseOut={()=>{console.log("hoverded out")}}>
+            <img onMouseOver={()=>{console.log("Hovered on the image")} } src="https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/dogs_1280p_0.jpg?itok=cnRk0HYq"/>
+            <button onClick={handleFunc} >click me</button>
+        </div>
+        )
+        
+    }
+}
+
+
+===============================================================================================
+
+
+======================================================
+States aand changing states in class based components 
+======================================================
+
+
+class App extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            imgUrl:"https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/dogs_1280p_0.jpg?itok=cnRk0HYq",
+            name:'Rohan'
+        };
+        this.changeImg = this.changeImg.bind(this) 
+    }
+
+    changeImg(){
+        console.log("Chnaging the imgage");
+        this.setState({
+            name:"codebloded",  
+            imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTzt9sqN5lLJ6j4fEIYsAh-wQJnuTLkZTADYw&usqp=CAU"
+    });
+}
+    render(){
+        return (
+        <div onMouseOut={()=>{console.log("hoverded out")}}>
+            <h1>{this.state.name}</h1>
+            <img onMouseOver={()=>{console.log("Hovered on the image")} } src={this.state.imgUrl}/>
+            <button onClick={handleFunc} >click me</button>
+            <button onClick={this.changeImg} >click me</button>
+        </div>  
+        )
+
+
+        
+        
+    }
+}
+==================================================================================================
+
+
+
+
 
 
