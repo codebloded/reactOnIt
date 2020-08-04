@@ -16,5 +16,45 @@ ReactDOM.render(
 
 
 
+===========================================================
+        React State : hopw state work
+===========================================================
+
+import React from "react";
+const { Component } = require("react");
+
+
+class App extends Component{
+    constructor(){
+        super()
+        this.state={
+            islog:false,
+            name:"Rohan"
+        }
+
+    }
+    render(){
+        let log;
+        let logName;
+        if(this.state.islog===true && this.state.name == "Rohan"){
+            log="in";
+            logName=this.state.name;
+        }
+        else{
+            log="out";
+            logName="codebloded"
+        }
+        return(
+        <h1>You are logged {log} as {logName}</h1>
+        )
+    }
+}
+
+export default App;
+
+=============================================================================================
+
+
+
 
 
