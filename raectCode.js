@@ -15,7 +15,6 @@ ReactDOM.render(
         document.getElementById('root'))
 
 
-
 //===========================================================
  //       React State : hopw state work
 //===========================================================
@@ -157,6 +156,120 @@ class App extends React.Component{
     }
 } 
 //==============================================================================================
+
+
+=================
+Typewriter effect practice code 
+=================================
+
+
+
+class App extends React.Component{
+    constructor(props){   //props is always be the argumnet fo the class constructor
+        super()
+        this.state={
+            name:"Rohan", 
+            text:"This is codebloded i a a web developer and comoputer enginner"
+        }
+        console.log(props.last);
+        this.handleFunc = this.handleFunc.bind(this);
+        this.typeWriter = this.typeWriter.bind(this);
+    }
+
+    handleFunc(){
+        this.setState((preState=>{
+            return{
+                name:"Codebloded"
+            }
+        }));
+    }
+
+    typeWriter(){
+        let text = this.state.text;
+        console.log(this.state.text)
+        let i=0;
+        let speed =50;
+        function print(){
+
+            if(i> text.length){
+                document.getElementById('root').innerHTML += text.charAt(i)
+                i++;
+                setTimeout(print(), speed)       
+            }
+        }
+    }
+
+    render(){
+        return (
+            <React.Fragment>
+
+        <h1>{this.state.name} {this.props.last}</h1>
+        <button onClick={this.handleFunc}>Click me</button>
+        <h1 id="type">{this.state.text}</h1>
+        <button onClick={this.typeWriter}>Click me</button>
+
+            </React.Fragment>
+        )
+    }
+} 
+
+=====================================================================================================
+
+
+========================================
+//Conditonal rendrfing in  reacct
+
+class App extends React.Component{
+    constructor(){
+        super()
+        this.state ={
+            isLoggedIn: false
+        }
+        this.clickHandler = this.clickHandler.bind(this);
+    }
+
+    clickHandler(){
+        this.setState(prevState => {
+            return{
+                   isLoggedIn: !prevState.isLoggedIn,
+                   
+            }
+        });
+    }
+
+  
+    render(){
+        let displayTxt;
+        let logTxt;
+        if(this.state.isLoggedIn ===true){
+            logTxt="Log Out";
+        } 
+        else{
+            logTxt = "Log In";
+        }
+
+        if(this.state.isLoggedIn=== true){
+            displayTxt = "Logged in";
+        }
+        else{
+            displayTxt = "Logged out";
+        }
+
+
+        return(
+
+            <div>
+                <h1>You are {displayTxt} now , click {logTxt} </h1>
+        <button onClick={this.clickHandler}>{logTxt}</button>
+        <h1>{this.state.txt}</h1>
+            
+        </div>
+            )
+    }
+
+}
+
+
 
 
 
