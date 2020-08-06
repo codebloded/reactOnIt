@@ -269,6 +269,56 @@ class App extends React.Component{
 
 }
 
+===========================================================================================
+
+======================================
+fetching the API using react
+=======================================
+
+class App extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            info:{},
+            loading:false
+        }
+    }
+    componentDidMount(){
+
+        this.setState({
+            loading:true
+        })
+
+        fetch("https://dog.ceo/api/breeds/image/random ")
+            .then(response => response.json())
+            .then(data=>{
+                this.setState({
+                    loading:false,
+                    info:data
+                })
+                console.log(data);
+            })
+        
+    }
+
+    render(){
+        let txt;
+        if(this.state.loading === true){
+            txt = "Loading..."
+        }
+        else{
+            txt=this.state.info.message;
+        }
+        return(
+            <div>
+
+        
+        <img src={txt}/>
+            </div>
+        )
+    }
+}
+
 
 
 
