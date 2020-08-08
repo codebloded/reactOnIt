@@ -361,9 +361,60 @@ function App(){
 }
 
 
-===============================================================================================
+//===============================================================================================
+//React map and key //===========================================================================
+/Creating useState Hooks
+
+class App extends React.Component{
+    state = {
+        user:[
+            {id:101, name:"Rohan", password:"dhjfdjhfd"},
+            {id:102, name:"Anubaav", password:"dhjfdjhfd"},
+            {id:103, name:"dani", password:"dhjfdjhfd"},
+            {id:104, name:"codebloded", password:"dhjfdjhfd"},
+            {id:105, name:"nullvoid", password:"dhjfdjhfd"},
+
+        ], change:false
+    }
+    mouseHandler =()=>{
+        this.setState({change:true})
+        
+    }
 
 
+    render(){
+       
+        const onStyle={
+            border:"3px solid red",
+            borderRadius:3,
+            color:"brown",
+            backgroundColor:"green"
+        }
+
+        if(this.state.change === true){
+            onStyle.color="red";
+            this.state.change=false
+        }
+        const arrx = this.state.user.map((user=>{
+            console.log(user)
+            return(
+                <React.Fragment>
+
+                <h1  key={user.id} onClick={this.mouseHandler}style={onStyle}>ID:{user.id} , name:{user.name}, pass: {user.password}  
+                </h1>
+       
+                </React.Fragment>
+                )
+        }));
+        return(
+            <div>
+                {arrx}
+                <h1 className={Styles.txt}>hey Mew!</h1>
+            </div>
+        )
+    }
+}
+//=============================================================================
 
 
 
