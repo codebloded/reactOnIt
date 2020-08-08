@@ -319,6 +319,50 @@ class App extends React.Component{
     }
 }
 
+//===============================================================================================
+//React hooks and use of useState, useEffect and also the custom hooks
+//==============================================================================================
+
+
+
+function App(){
+    let [count, update] = useState(0); // Declaring the useState hook form react library
+    let [countDec,dec] = useState(100); // Declaring the useState hook form react library
+    let [countm,mhandl] = useState(0); // Declaring the useState hook form react library
+    const data = useHook();
+    useEffect( ()=>{
+        return console.log("useEffect is called");
+
+    }, [countDec, countm, data.counter])
+    function handleClick(){
+        update(count=count+2)
+        
+    }
+    function mHandlerClick(){
+        mhandl(countm = countm+4);
+    }
+    function decHandlerClick(){
+        dec(count =count-2);
+    }
+    return (
+        
+        <React.Fragment>
+            <h1>{count}</h1>
+            <button onClick={handleClick}>change</button>
+            <h1>{countDec}</h1>
+            <button onClick={decHandlerClick}>change</button>
+            <h1>{countm}</h1>
+            <button onClick={mHandlerClick}>change</button>
+            <h1>{data.counter}</h1>
+            <button onClick={data.hanleTrave}>change</button>
+        </React.Fragment>
+        
+    )
+}
+
+
+===============================================================================================
+
 
 
 
